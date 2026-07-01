@@ -1,5 +1,17 @@
+server:
+  port: 8089
+  forward-headers-strategy: framework
 spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/${DB_NAME:blog}
+    username: ${DB_USER:postgres}
+    password: ${DB_PASSWORD:123456}
+    driver-class-name: org.postgresql.Driver
+
   application:
     name: blog-server-java
-  profiles:
-    active: local
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+      show-sql: true
