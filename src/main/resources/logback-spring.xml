@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <!--  日志根目录 -->
+    <property name="LOG_DIR" value="${user.dir}/logs"/>
+    <!--  控制台输出  -->
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] [%-5level] %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="API_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_DIR}/api/logging.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>
+                ${LOG_DIR}/api/logging.%d{yyyy-MM-dd}.%i.log
+            </fileNamePattern>
+            <maxFileSize>
+                1MB
+            </maxFileSize>
+            <maxHistory>3</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} [%-5level] : %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="SQL_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_DIR}/sql/logging.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>
+                ${LOG_DIR}/sql/logging.%d{yyyy-MM-dd}.%i.log
+            </fileNamePattern>
+            <maxFileSize>
+                1MB
+            </maxFileSize>
+            <maxHistory>3</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} [%-5level] : %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="REDIS_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_DIR}/redis/logging.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>
+                ${LOG_DIR}/redis/logging.%d{yyyy-MM-dd}.%i.log
+            </fileNamePattern>
+            <maxFileSize>
+                1MB
+            </maxFileSize>
+            <maxHistory>3</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} [%-5level] : %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="DEFAULT_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_DIR}/default/logging.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_DIR}/default/logging.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <maxFileSize>1MB</maxFileSize>
+            <maxHistory>3</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} [%-5level] : %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- API 请求日志分类 -->
+    <logger name="com.blog.blogserverjava.config.ApiLogInterceptor" level="ALL" additivity="false">
+        <appender-ref ref="API_FILE"/>
+    </logger>
+
+    <!-- SQL 日志分类，MyBatis 的 SQL 会自动走这里 -->
+    <logger name="sql" level="ALL" additivity="false">
+        <appender-ref ref="SQL_FILE"/>
+    </logger>
+
+    <!-- Redis 日志分类 -->
+    <logger name="redis" level="ALL" additivity="false">
+        <appender-ref ref="REDIS_FILE"/>
+    </logger>
+
+    <!-- 根日志，兜底所有未分类的日志 -->
+    <root level="INFO">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="DEFAULT_FILE"/>
+    </root>
+</configuration>
