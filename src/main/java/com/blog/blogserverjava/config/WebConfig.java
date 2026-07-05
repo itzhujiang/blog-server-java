@@ -20,6 +20,9 @@ public class WebConfig implements WebMvcConfigurer {
     @Autowired
     private ApiLogInterceptor apiLogInterceptor;
 
+    @Autowired
+    private AuthInterceptor authInterceptor;
+
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")
@@ -36,7 +39,7 @@ public class WebConfig implements WebMvcConfigurer {
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(apiLogInterceptor)
-                .addPathPatterns("/**"); // 拦截所有路径
+        registry.addInterceptor(apiLogInterceptor).addPathPatterns("/**");
+        registry.addInterceptor(authInterceptor).addPathPatterns("/**");
     }
 }

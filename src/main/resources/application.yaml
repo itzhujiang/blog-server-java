@@ -11,10 +11,14 @@ spring:
   application:
     name: blog-server-java
 
-  jpa:
-    hibernate:
-      ddl-auto: update
-      show-sql: true
 app:
   cors-origin: "*"
   uploads-dir: ${user.dir}/uploads
+
+mybatis-plus:
+  global-config:
+    db-config:
+      logic-not-delete-value: 0
+      logic-delete-value: 1
+  configuration:
+    default-enum-type-handler: com.baomidou.mybatisplus.core.handlers.MybatisEnumTypeHandler
