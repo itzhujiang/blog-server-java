@@ -1,4 +1,4 @@
-package com.blog.blogserverjava.config;
+package com.blog.blogserverjava.interceptor;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;

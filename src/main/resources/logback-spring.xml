@@ -70,7 +70,7 @@
     </appender>
 
     <!-- API 请求日志分类 -->
-    <logger name="com.blog.blogserverjava.config.ApiLogInterceptor" level="ALL" additivity="false">
+    <logger name="com.blog.blogserverjava.interceptor.ApiLogInterceptor" level="ALL" additivity="false">
         <appender-ref ref="API_FILE"/>
     </logger>
 

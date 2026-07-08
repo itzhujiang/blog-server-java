@@ -18,13 +18,11 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(Exception.class)
     public Result<?> handleException(Exception e) {
         e.printStackTrace();
-        // 返回统一错误格式
         return Result.error(ResultCode.INTERNAL_ERROR);
     }
 
     /**
      * 捕获参数校验失败
-     * 当你用 @Valid 校验参数时，校验失败会抛 MethodArgumentNotValidException
      */
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public Result<?> handleValidation(MethodArgumentNotValidException e) {
