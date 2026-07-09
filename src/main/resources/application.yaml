@@ -1,6 +1,8 @@
 server:
   port: 8089
   forward-headers-strategy: framework
+  servlet:
+    context-path: /api
 spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/${DB_NAME:blog}

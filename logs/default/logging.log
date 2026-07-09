@@ -497,3 +497,22 @@ Caused by: org.postgresql.util.PSQLException: 错误: 类型 "ai_global_chat_mem
 	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
 	at org.springframework.jdbc.datasource.init.ScriptUtils.executeSqlScript(ScriptUtils.java:261)
 	... 31 common frames omitted
+2026-07-08 23:27:41 [INFO ] : HV000001: Hibernate Validator 9.1.0.Final
+2026-07-08 23:27:41 [INFO ] : Starting BlogServerJavaApplication using Java 21.0.11 with PID 21192 (D:\study\project\blog-server-java\target\classes started by Admin in D:\study\project\blog-server-java)
+2026-07-08 23:27:41 [INFO ] : No active profile set, falling back to 1 default profile: "default"
+2026-07-08 23:27:41 [INFO ] : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-07-08 23:27:41 [INFO ] : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-07-08 23:27:42 [INFO ] : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-07-08 23:27:42 [INFO ] : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-07-08 23:27:42 [INFO ] : Finished Spring Data repository scanning in 6 ms. Found 0 Redis repository interfaces.
+2026-07-08 23:27:42 [INFO ] : Tomcat initialized with port 8089 (http)
+2026-07-08 23:27:42 [INFO ] : Initializing ProtocolHandler ["http-nio-8089"]
+2026-07-08 23:27:42 [INFO ] : Starting service [Tomcat]
+2026-07-08 23:27:42 [INFO ] : Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-07-08 23:27:42 [INFO ] : Root WebApplicationContext: initialization completed in 542 ms
+2026-07-08 23:27:42 [INFO ] : HikariPool-1 - Starting...
+2026-07-08 23:27:42 [INFO ] : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@6280e295
+2026-07-08 23:27:42 [INFO ] : HikariPool-1 - Start completed.
+2026-07-08 23:27:42 [INFO ] : Starting ProtocolHandler ["http-nio-8089"]
+2026-07-08 23:27:42 [INFO ] : Tomcat started on port 8089 (http) with context path '/'
+2026-07-08 23:27:42 [INFO ] : Started BlogServerJavaApplication in 1.401 seconds (process running for 1.606)
