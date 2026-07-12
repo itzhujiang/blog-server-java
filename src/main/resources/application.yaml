@@ -19,7 +19,8 @@ spring:
 app:
   cors-origin: "*"
   uploads-dir: ${user.dir}/uploads
-
+  jwt-secret: ${JWT_SECRET:yuandan-2026}
+  jwt-expire: 604800
 mybatis-plus:
   global-config:
     db-config:
