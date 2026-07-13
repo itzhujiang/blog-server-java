@@ -15,7 +15,7 @@ public class Result<T> {
         this.data = data;
     }
 
-    public static <T> Result<T> sussess(T data) {
+    public static <T> Result<T> success(T data) {
         return new Result<>(ResultCode.SUCCESS.getCode(), ResultCode.SUCCESS.getMsg(), data);
     }
 

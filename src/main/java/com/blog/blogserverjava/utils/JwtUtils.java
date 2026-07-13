@@ -1,4 +1,4 @@
-package com.blog.blogserverjava.util;
+package com.blog.blogserverjava.utils;
 
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
