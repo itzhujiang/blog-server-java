@@ -14,7 +14,7 @@ import java.util.Map;
 public class JwtUtils {
     @Value("${app.jwt-secret}")
     private String secret;
-    @Value("${jwt-expire}")
+    @Value("${app.jwt-expire}")
     private long expireSeconds;
 
     private SecretKey getKey() {

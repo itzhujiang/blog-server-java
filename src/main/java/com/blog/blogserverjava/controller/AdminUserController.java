@@ -6,9 +6,7 @@ import com.blog.blogserverjava.dto.admin.LoginResponse;
 import com.blog.blogserverjava.service.AdminUserService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/user/admin")
@@ -16,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class AdminUserController {
     private final AdminUserService adminUserService;
 
-    @RequestMapping("/login")
+    @PostMapping("/login")
     public Result<LoginResponse> login(@Valid @RequestBody LoginRequest req) {
         String token = adminUserService.login(req.getUsername(), req.getPassword());
         return Result.success(new LoginResponse(token));

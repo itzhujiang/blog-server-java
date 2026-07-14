@@ -1,9 +1,13 @@
 package com.blog.blogserverjava.common;
 
 import com.blog.blogserverjava.enums.ResultCode;
+import org.springframework.http.converter.HttpMessageNotReadableException;
+import org.springframework.web.HttpMediaTypeNotSupportedException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
 
+@RestControllerAdvice
 public class GlobalExceptionHandler {
 
     /** 捕获自定义业务异常 */
@@ -24,7 +28,7 @@ public class GlobalExceptionHandler {
     /**
      * 捕获参数校验失败
      */
-    @ExceptionHandler(MethodArgumentNotValidException.class)
+    @ExceptionHandler({MethodArgumentNotValidException.class,HttpMediaTypeNotSupportedException.class})
     public Result<?> handleValidation(MethodArgumentNotValidException e) {
         String msg = e.getBindingResult()
                 .getFieldErrors()
