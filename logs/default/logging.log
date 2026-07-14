@@ -90,3 +90,30 @@ java.lang.IllegalStateException: Could not resolve parameter [0] in public com.b
 2026-07-15 00:10:10 [INFO ] : Graceful shutdown complete
 2026-07-15 00:10:10 [INFO ] : HikariPool-1 - Shutdown initiated...
 2026-07-15 00:10:10 [INFO ] : HikariPool-1 - Shutdown completed.
+2026-07-15 00:10:12 [INFO ] : HV000001: Hibernate Validator 8.0.2.Final
+2026-07-15 00:10:12 [INFO ] : Starting BlogServerJavaApplication using Java 21.0.11 with PID 30560 (D:\study\project\blog-server-java\target\classes started by Admin in D:\study\project\blog-server-java)
+2026-07-15 00:10:12 [INFO ] : No active profile set, falling back to 1 default profile: "default"
+2026-07-15 00:10:12 [INFO ] : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-07-15 00:10:12 [INFO ] : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-07-15 00:10:12 [INFO ] : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-07-15 00:10:12 [INFO ] : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-07-15 00:10:12 [INFO ] : Finished Spring Data repository scanning in 7 ms. Found 0 Redis repository interfaces.
+2026-07-15 00:10:12 [INFO ] : Tomcat initialized with port 8089 (http)
+2026-07-15 00:10:12 [INFO ] : Initializing ProtocolHandler ["http-nio-8089"]
+2026-07-15 00:10:12 [INFO ] : Starting service [Tomcat]
+2026-07-15 00:10:12 [INFO ] : Starting Servlet engine: [Apache Tomcat/10.1.40]
+2026-07-15 00:10:12 [INFO ] : Initializing Spring embedded WebApplicationContext
+2026-07-15 00:10:12 [INFO ] : Root WebApplicationContext: initialization completed in 566 ms
+2026-07-15 00:10:13 [INFO ] : HikariPool-1 - Starting...
+2026-07-15 00:10:13 [INFO ] : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@7bc80d33
+2026-07-15 00:10:13 [INFO ] : HikariPool-1 - Start completed.
+2026-07-15 00:10:13 [INFO ] : Register ApplicationContext instances org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@577054db
+2026-07-15 00:10:13 [INFO ] : LiveReload server is running on port 35729
+2026-07-15 00:10:13 [INFO ] : Starting ProtocolHandler ["http-nio-8089"]
+2026-07-15 00:10:13 [INFO ] : Tomcat started on port 8089 (http) with context path '/api'
+2026-07-15 00:10:13 [INFO ] : Started BlogServerJavaApplication in 1.459 seconds (process running for 1.652)
+2026-07-15 00:10:14 [INFO ] : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-07-15 00:10:14 [INFO ] : Initializing Servlet 'dispatcherServlet'
+2026-07-15 00:10:14 [INFO ] : Completed initialization in 0 ms
+2026-07-15 00:10:15 [WARN ] : Resolved [com.blog.blogserverjava.common.BusinessException: 用户名或密码错误]
+2026-07-15 00:10:20 [WARN ] : Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public com.blog.blogserverjava.common.Result<com.blog.blogserverjava.dto.admin.LoginResponse> com.blog.blogserverjava.controller.AdminUserController.login(com.blog.blogserverjava.dto.admin.LoginRequest) with 2 errors: [Field error in object 'loginRequest' on field 'password': rejected value []; codes [NotBlank.loginRequest.password,NotBlank.password,NotBlank.java.lang.String,NotBlank]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [loginRequest.password,password]; arguments []; default message [password]]; default message [密码不能为空]] [Field error in object 'loginRequest' on field 'password': rejected value []; codes [Size.loginRequest.password,Size.password,Size.java.lang.String,Size]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [loginRequest.password,password]; arguments []; default message [password],2147483647,6]; default message [密码长度至少6个字符]] ]
