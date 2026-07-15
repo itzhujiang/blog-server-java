@@ -57,6 +57,22 @@
         </encoder>
     </appender>
 
+    <appender name="APP_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_DIR}/app/logging.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>
+                ${LOG_DIR}/app/logging.%d{yyyy-MM-dd}.%i.log
+            </fileNamePattern>
+            <maxFileSize>
+                1MB
+            </maxFileSize>
+            <maxHistory>3</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} [%-5level] : %msg%n</pattern>
+        </encoder>
+    </appender>
+
     <appender name="DEFAULT_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>${LOG_DIR}/default/logging.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
@@ -84,8 +100,20 @@
         <appender-ref ref="REDIS_FILE"/>
     </logger>
 
+    <!--  请求报错警告等日志  -->
+    <logger name="com.blog.blogserverjava.common.GlobalExceptionHandler" level="ALL" additivity="false">
+        <appender-ref ref="APP_FILE"/>
+    </logger>
+
+    <!-- 屏蔽 Tomcat/Spring 框架内部 DEBUG 日志 -->
+    <logger name="org.apache.tomcat" level="WARN"/>
+    <logger name="org.apache.catalina" level="WARN"/>
+    <logger name="org.springframework" level="INFO"/>
+    <logger name="org.postgresql" level="WARN"/>
+    <logger name="com.zaxxer.hikari" level="INFO"/>
+
     <!-- 根日志，兜底所有未分类的日志 -->
-    <root level="INFO">
+    <root level="ALL">
         <appender-ref ref="CONSOLE"/>
         <appender-ref ref="DEFAULT_FILE"/>
     </root>
