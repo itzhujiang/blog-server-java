@@ -34,3 +34,8 @@ build/
 
 
 **/application-local.yaml
+
+logs
+*.log
+
+**/v3__init_admin.sql
