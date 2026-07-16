@@ -1,4 +1,4 @@
-insert into categories (name, slug, created_at, updated_at, deleted_at)
+insert into categories (name, slug, created_at, updated_at)
 values
     ('技术学习', 'tech',(EXTRACT(EPOCH FROM NOW()) * 1000)::bigint,(EXTRACT(EPOCH FROM NOW()) * 1000)::bigint),
     ('生活故事', 'life',(EXTRACT(EPOCH FROM NOW()) * 1000)::bigint,(EXTRACT(EPOCH FROM NOW()) * 1000)::bigint),
@@ -62,8 +62,7 @@ values (
            '[
              {"timestamp": 1704067200000, "title": "开启博客之旅", "description": "创建\"暖木博客\"，记录技术与生活。"},
              {"timestamp": 1640995200000, "title": "首次参与开源项目", "description": "为一个小众UI库贡献了代码。"},
-             {"timestamp": 1577808000000, "title": "毕业 & 第一份工作", "description":
-             "作为前端开发工程师，正式踏入职场。"},
+             {"timestamp": 1577808000000, "title": "毕业 & 第一份工作", "description": "作为前端开发工程师，正式踏入职场。"},
              {"timestamp": 1467302400000, "title": "写下第一行代码", "description": "Hello World! 开启了对编程世界的探索。"}
              ]',
            (EXTRACT(EPOCH FROM NOW()) * 1000)::bigint
