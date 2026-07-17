@@ -21,23 +21,28 @@ public class JwtUtils {
         return Keys.hmacShaKeyFor(secret.getBytes(StandardCharsets.UTF_8));
     }
 
-    public String issueJwt(Map<String, Object> claims) {
+    public String issueJwt(JwtPayload payload) {
         long now = System.currentTimeMillis();
         return Jwts.builder()
-                .claims(claims)
+                .claims(Map.of(
+                        "id", payload.id(),
+                        "username", payload.username(),
+                        "name", payload.name()
+                ))
                 .issuedAt(new Date(now))
                 .expiration(new Date(now + expireSeconds * 1000))
                 .signWith(getKey())
                 .compact();
     }
 
-    public Map<String, Object> verifyJwt(String token) {
+    public JwtPayload verifyJwt(String token) {
         try {
-            return Jwts.parser()
+            Map<String, Object> map = Jwts.parser()
                     .verifyWith(getKey())
                     .build()
                     .parseSignedClaims(token)
                     .getPayload();
+            return new JwtPayload((Integer) map.get("id"),(String) map.get("username"),(String) map.get("name"));
         } catch (Exception e) {
             return  null;
         }

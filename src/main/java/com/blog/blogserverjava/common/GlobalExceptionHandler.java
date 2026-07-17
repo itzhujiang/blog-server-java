@@ -16,6 +16,7 @@ public class GlobalExceptionHandler {
     /** 捕获自定义业务异常 */
     @ExceptionHandler(BusinessException.class)
     public Result handleBusinessException(BusinessException e, HttpServletRequest request) {
+        System.out.println("1111111111111111111111");
         log.warn("""
                 \nmessage: {}
                 url: {}

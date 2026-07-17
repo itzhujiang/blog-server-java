@@ -42,6 +42,13 @@ public class WebConfig implements WebMvcConfigurer {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(apiLogInterceptor).addPathPatterns("/**");
-        registry.addInterceptor(authInterceptor).addPathPatterns("/**");
+        registry.addInterceptor(authInterceptor)
+                .addPathPatterns("/**")
+                .excludePathPatterns(
+                        "/api/user/admin/login",
+                        "/uploads/**",
+                        "/api/tool/**",
+                        "/api/ai/ai-user/aiLogin"
+                );
     }
 }
