@@ -39,3 +39,5 @@ logs
 *.log
 
 **/v3__init_admin.sql
+
+uploads

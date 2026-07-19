@@ -45,10 +45,10 @@ public class WebConfig implements WebMvcConfigurer {
         registry.addInterceptor(authInterceptor)
                 .addPathPatterns("/**")
                 .excludePathPatterns(
-                        "/api/user/admin/login",
+                        "/user/admin/login",
                         "/uploads/**",
-                        "/api/tool/**",
-                        "/api/ai/ai-user/aiLogin"
+                        "/tool/**",
+                        "/ai/ai-user/aiLogin"
                 );
     }
 }

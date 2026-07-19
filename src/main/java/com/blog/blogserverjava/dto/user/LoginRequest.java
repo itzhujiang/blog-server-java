@@ -1,4 +1,4 @@
-package com.blog.blogserverjava.dto.admin;
+package com.blog.blogserverjava.dto.user;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;

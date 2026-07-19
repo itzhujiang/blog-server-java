@@ -19,11 +19,16 @@ spring:
     baseline-on-migrate: true  # 已有数据库时从基线开始，第一次迁移必须加
   application:
     name: blog-server-java
+  servlet:
+    multipart:
+      max-file-size: 2MB
+      max-request-size: 2MB
 
 app:
   cors-origin: "*"
   uploads-dir: ${user.dir}/uploads
-  jwt-secret: ${JWT_SECRET:yuandan-2026}
+  uploads-url: /uploads   # URL前缀
+  jwt-secret: ${JWT_SECRET:lingyu-2026-lingyu-2026-lingyu-999999999}
   jwt-expire: 604800
 mybatis-plus:
   global-config:

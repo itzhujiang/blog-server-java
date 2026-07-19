@@ -1,9 +1,9 @@
-package com.blog.blogserverjava.controller;
+package com.blog.blogserverjava.controller.user;
 
 import com.blog.blogserverjava.common.Result;
-import com.blog.blogserverjava.dto.admin.LoginRequest;
-import com.blog.blogserverjava.dto.admin.LoginResponse;
-import com.blog.blogserverjava.service.AdminUserService;
+import com.blog.blogserverjava.dto.user.LoginRequest;
+import com.blog.blogserverjava.dto.user.LoginResponse;
+import com.blog.blogserverjava.service.user.AdminUserService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
