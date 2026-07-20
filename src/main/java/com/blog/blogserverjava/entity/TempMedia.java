@@ -27,4 +27,6 @@ public class TempMedia {
 
     @TableField(fill = FieldFill.INSERT)
     private Long createdAt;
+    @TableLogic
+    private Integer deleted;
 }

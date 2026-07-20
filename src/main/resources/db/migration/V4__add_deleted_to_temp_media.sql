@@ -1,0 +1,1 @@
+ALTER TABLE temp_media ADD COLUMN deleted integer NOT NULL DEFAULT 0;

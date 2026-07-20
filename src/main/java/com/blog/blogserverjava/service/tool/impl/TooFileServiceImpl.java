@@ -56,8 +56,8 @@ public class TooFileServiceImpl implements ToolFileService  {
         String code =  UUID.randomUUID().toString();
         long timestamp = System.currentTimeMillis();
         long expiresAt = timestamp + tempFileExpiry;
-        String dir = Paths.get(path.toString(), filename).toString();
-        String url = contextPath + uploadsUrl + "/temp/" +  filename;
+        String dir = uploadsUrl + "/temp/" +  filename;
+        String url = contextPath + dir;
         TempMedia tempMedia = new TempMedia();
         tempMedia.setCode(code);
         tempMedia.setOriginalName(file.getOriginalFilename());
