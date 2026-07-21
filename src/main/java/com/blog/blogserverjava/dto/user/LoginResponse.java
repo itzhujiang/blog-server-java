@@ -1,4 +1,7 @@
 package com.blog.blogserverjava.dto.user;
 
-public record LoginResponse(String token) {
+public record LoginResponse(Data data) {
+
+    public record Data(String token) {
+    }
 }

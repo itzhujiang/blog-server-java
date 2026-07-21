@@ -2,6 +2,7 @@ package com.blog.blogserverjava.service.user.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.blog.blogserverjava.common.BusinessException;
+import com.blog.blogserverjava.dto.user.UserInfoResponse;
 import com.blog.blogserverjava.entity.AdminUser;
 import com.blog.blogserverjava.enums.ResultCode;
 import com.blog.blogserverjava.mapper.AdminUserMapper;
@@ -35,5 +36,19 @@ public class AdminUserServiceImpl implements AdminUserService {
         }
         JwtPayload jwtPayload = new JwtPayload(admin.getId(), admin.getUsername(), admin.getDisplayName() != null ? admin.getDisplayName() : "翎羽");
         return jwtutil.issueJwt(jwtPayload);
+    }
+
+    @Override
+    public UserInfoResponse getUserInfo(Integer id) {
+        if (id == null) {
+            throw new BusinessException(ResultCode.INTERNAL_ERROR, "当前用户不存在");
+        }
+        AdminUser user = adminUserMapper.selectById(id);
+        if (user == null) {
+            throw new BusinessException(ResultCode.INTERNAL_ERROR, "当前用户不存在");
+        }
+        return new UserInfoResponse(new UserInfoResponse.Data(
+                user.getId(), user.getEmail(), user.getAvatarUrl(), user.getDisplayName(), user.getUsername()
+        ));
     }
 }

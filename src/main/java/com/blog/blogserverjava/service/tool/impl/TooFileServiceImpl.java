@@ -70,6 +70,6 @@ public class TooFileServiceImpl implements ToolFileService  {
 
         tempMediaMapper.insert(tempMedia);
 
-        return new UploadResponse(code, file.getSize(), url, file.getOriginalFilename());
+        return new UploadResponse(new UploadResponse.Data(code, file.getSize(), url, file.getOriginalFilename()));
     }
 }
